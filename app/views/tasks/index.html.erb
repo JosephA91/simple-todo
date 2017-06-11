@@ -1,0 +1,33 @@
+<div class="jumbotron fluid">
+  <div class="container">
+    <h1>My Task List</h1>
+    <p>Welcome to my Task List</p>
+    <%= link_to 'New Task', new_task_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table">
+    <tr>
+      <th>Id #</th>
+      <th>Completed</th>
+      <th>Title</th>
+      <th>Created At</th>
+      <th>Updated At</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+
+    <% @tasks.each do |task| %>
+    <tr>
+      <td><strong><%= task.id %></strong></td>
+      <td><input type="checkbox" name="name" value=""></td>
+      <td><%= link_to task.title, task_path(task) %></td>
+      <td><%= task.created_at %></td>
+      <td><%= task.updated_at %></td>
+      <td><%= link_to 'Edit Task', edit_task_path(task), class: "btn btn-warning" %></td>
+      <td><%= link_to 'Delete Task', task_path(task), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,11 @@
+<div class="container">
+  <h2><%= @task.title %></h2>
+  <% if @task.description.blank? %>
+    <p>No Description</p>
+  <% else %>
+    <p><%= @task.description %></p>
+  <% end %>
+  <%= link_to 'Back to Tasks', tasks_path, class: "btn btn-default" %>
+  <%= link_to 'Edit Task', edit_task_path, class: "btn btn-warning" %>
+  <%= link_to 'Delete Task', task_path, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
